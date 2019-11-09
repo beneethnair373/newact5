@@ -16,7 +16,7 @@ class SectionsController extends Controller
     public function filter()
     {
     	$studnts = DB::table('students')
-    		->rightjoin('payments', 'students.id', '=', 'payments.students_id')
+    		->leftjoin('payments', 'students.id', '=', 'payments.students_id')
           
     		->where('section_id', request()->secttion_id)
     		->get();

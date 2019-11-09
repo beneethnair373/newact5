@@ -16,7 +16,8 @@
          <ul>
              
                 <li v-for='student in Unpaid'>
-                    @{{ students.body }}
+                    @{{ students.first_name }},
+                    @{{ students.last_name }}
                 </li>
          </ul>
 
@@ -50,22 +51,18 @@
                         });
                 }
             },
-            // computed: {
-            //     Unpaid() {
-            //         //return filtered questions
-            //         return this.payments.filter(function(question) {
-            //             //return only the questions wherein the is_multiple_choice is equal to 1
-            //             return payments.is_Unpaid == 1;
-            //         });
-            //     },
-            //     Paid() {
-            //         //return filtered questions
-            //         return this.payments.filter(function(question) {
-            //             //return only the questions wherein the is_multiple_choice is equal to 0
-            //             return payments.is_paid == 0;
-            //         });
-            //     }
-            // }
+            computed: {
+                Unpaid() {
+                    return this.students.filter(function(question) {
+                        return students.id == students.payments;
+                    });
+                },
+                Paid() {
+                    return this.students.filter(function(question) {
+                        return students.id ==  students.payments;
+                    });
+                }
+            }
         })
 
      </script>
